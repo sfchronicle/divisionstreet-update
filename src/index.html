@@ -22,12 +22,12 @@
 
       <div class="division-background-img">
         <img src="http://ww2.hdnux.com/photos/61/64/55/<%=json.division.main_image[0].WcmID%>/5/2000x0.jpg"></img>
-        <div class="caption"><%=json.division.main_image[0].Photographer%></div>
+        <div class="header-byline"><%=json.division.main_image[0].Photographer%></div>
       </div>
 
       <div class="hed-wrapper">
-        <div class="hed"><%=json.division.Headline%></div>
-        <div class="chatter"><%=json.division.Deck%></div>
+        <h1 class="title"><%=json.division.Headline%></div>
+        <h3 class="deck"><%=json.division.Deck%></div>
         <p class="author">By <a href="mailto:kfagan@sfchronicle.com"><%=json.division.Reporter%></a></div>
         <div class="date"><%=json.division.Date%></div>
         <%= t.include("partials/_title_social.html") %>
@@ -41,9 +41,9 @@
         <% if (d.type == "text") { %>
           <p><%=d.value%></p>
         <% } else if (d.type == "image") { %>
-          <div class="img <%= d.value[0].Size %>">
+          <div class="story-img <%= d.value[0].Size %>">
             <img src="http://ww2.hdnux.com/photos/61/64/55/<%= d.value[0].WcmID %>/5/2000x0.jpg">
-            <div class="caption"><%= d.value[0].Caption %> <span class="byline"> <%= d.value[0].Photographer %></span></div>
+            <div class="caption"><%= d.value[0].Caption %> <span class="photo-byline"> <%= d.value[0].Photographer %></span></div>
           </div>
         <% } %>
       <% }); %>
@@ -56,14 +56,18 @@
 
         <% var obj = json.division.profiles[0][key]; %>
 
-        <div class="profile">
+        <div class="profile" id="<%=key%>">
+          
           <% obj.forEach(function(d,dIDX) { %>
             <% if (d.type == "Person") { %>
+
               <div class="name"><%= d.value %></div>
+            <% } else if (d.type == "Description"){ %>
+              <div class="description"><%= d.value %></div>
             <% } else if (d.type == "image"){ %>
               <div class="lead-image">
                 <img src="http://ww2.hdnux.com/photos/61/64/55/<%= d.value[0].WcmID %>/5/2000x0.jpg">
-                <div class="caption"><%= d.value[0].Caption %> <span class="byline"> <%= d.value[0].Photographer %></span></div>
+                <div class="caption"><%= d.value[0].Caption %> <span class="photo-byline"> <%= d.value[0].Photographer %></span></div>
               </div>
             <% } else if (d.type == "text"){ %>
               <p><%=d.value%></p>
@@ -86,9 +90,9 @@
         <% if (d.type == "text") { %>
           <p><%=d.value%></p>
         <% } else if (d.type == "image") { %>
-          <div class="img <%= d.value[0].Size %>">
+          <div class="story-img <%= d.value[0].Size %>">
             <img src="http://ww2.hdnux.com/photos/61/64/55/<%= d.value[0].WcmID %>/5/2000x0.jpg">
-            <div class="caption"><%= d.value[0].Caption %> <span class="byline"> <%= d.value[0].Photographer %></span></div>
+            <div class="caption"><%= d.value[0].Caption %> <span class="photo-byline"> <%= d.value[0].Photographer %></span></div>
           </div>
         <% } %>
       <% }); %>
@@ -100,6 +104,11 @@
 
     <script>
       var mapData = <%= JSON.stringify(json.map) %>
+    </script>
+
+    <script>
+    $('#gray').addClass('active');
+
     </script>
 
     <script src="app.js" async></script>

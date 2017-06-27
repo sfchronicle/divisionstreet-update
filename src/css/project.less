@@ -96,34 +96,90 @@
 		width: 100%;
 	}
 }
- .byline {
-   color: lighten(@light-gray,10%);
-   font-size: 18px;
-   text-align: center;
-   padding-top: 20px;
-   @media @tablet {
-     color: @dark-gray;
-   }
-   @media @mobile {
-     font-size: 16px;
-     // color: @dark-gray;
-   }
-   a {
-     cursor: pointer;
-     color: lighten(@light-gray,10%);
-     &:hover {
-       color: white;
-     }
-     @media @tablet {
-       color: @dark-gray;
-       &.hover {
-         color: @light-gray;
-       }
-     }
-     text-decoration: underline;
-   }
- }
 
+.header-byline {
+	text-align: right;
+	font-family: @body;
+  font-size: 12px;
+  margin-top: -5px;
+  padding: 0 10px;
+  &.landing {
+    margin-bottom: 2.5em;
+  }
+}
+
+.title {
+	font-family: "FarnhamTextBold", Georgia, serif;
+}
+
+.deck {
+	max-width: 600px;
+    font-size: 1em;
+    font-family: "FarnhamText", Georgia, serif;
+    text-align: center;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+
+.story-img, .lead-image {
+	img {
+		display: block;
+		max-width: 800px;
+		position: relative;
+		margin: 0 auto;
+	}
+	margin-bottom: 20px;
+}
+
+.caption {
+	display: block;
+	position: relative;
+	padding-top: 5px;
+	margin: 0 auto;
+	text-align: left;
+	max-width: 800px;
+}
+
+.photo-byline {
+	font-size: 12px;
+	font-style: italic;
+	color: #A9A9A9;
+	padding-top: 20px;
+	@media @tablet {
+		color: @dark-gray;
+	}
+}
+
+.name {
+	font-size: 28px;
+	max-width: 70%;
+	padding-top: 20px;
+	text-align: center;
+	margin: auto;
+	border-bottom: 4px solid #D13D59;
+}
+
+.description {
+
+	padding-top: 20px;
+	font-size: 15px;
+	text-align: center;
+}
+
+.lead-image {
+	margin-top: 30px;
+}
+
+.profile {
+	opacity: .6;
+}
+
+.active {
+	opacity: 1;
+}
 
 //
 // #stick-ph {
@@ -349,7 +405,7 @@
 // }
 //
  .hed-wrapper {
-   margin-top: 50px;
+   margin-top: 40px;
    color: @dark-gray-blue;
    @media @mobile {
      margin-top: 0;
@@ -358,19 +414,7 @@
      color: darken(@gray-blue,25%);
      background: rgba(255,255,255,0.9);
    }
-   .hed {
-     font-family: @bold-graphics;
-     font-size: 30px;
-     max-width: 450px;
-     margin: auto;
-     line-height:1.4;
-     @media @tablet {
-       font-size: 25px;
-     }
-     @media @mobile {
-       font-size: 25px;
-     }
-   }
+
  }
 //
 //
