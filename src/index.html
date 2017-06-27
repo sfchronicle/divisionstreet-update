@@ -20,7 +20,7 @@
 
     <div class="top-container">
 
-      <div class="background-img">
+      <div class="division-background-img">
         <img src="http://ww2.hdnux.com/photos/61/64/55/<%=json.division.main_image[0].WcmID%>/5/2000x0.jpg"></img>
         <div class="caption"><%=json.division.main_image[0].Photographer%></div>
       </div>
@@ -28,7 +28,7 @@
       <div class="hed-wrapper">
         <div class="hed"><%=json.division.Headline%></div>
         <div class="chatter"><%=json.division.Deck%></div>
-        <div class="byline">By <a href="mailto:mbodley@sfchronicle.com"><%=json.division.Reporter%></a></div>
+        <p class="author">By <a href="mailto:kfagan@sfchronicle.com"><%=json.division.Reporter%></a></div>
         <div class="date"><%=json.division.Date%></div>
         <%= t.include("partials/_title_social.html") %>
       </div>

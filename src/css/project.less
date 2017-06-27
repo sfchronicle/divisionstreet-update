@@ -1,7 +1,7 @@
-// @red: #E32B2B;//#3C87CF;
-// @dark-red: #c11a1a;
-// @gray-blue: #899D9E;
-// @dark-gray-blue: #0A1E1F;//#233738;//#3D5152;
+ @red: #E32B2B;//#3C87CF;
+ @dark-red: #c11a1a;
+ @gray-blue: #899D9E;
+ @dark-gray-blue: #0A1E1F;//#233738;//#3D5152;
 //
 // body {
 //   font-family: @block-graphics;
@@ -53,33 +53,41 @@
 //   }
 // }
 //
-// .byline {
-//   color: lighten(@light-gray,10%);
-//   font-size: 18px;
-//   text-align: center;
-//   padding-top: 20px;
-//   @media @tablet {
-//     color: @dark-gray;
-//   }
-//   @media @mobile {
-//     font-size: 16px;
-//     // color: @dark-gray;
-//   }
-//   a {
-//     cursor: pointer;
-//     color: lighten(@light-gray,10%);
-//     &:hover {
-//       color: white;
-//     }
-//     @media @tablet {
-//       color: @dark-gray;
-//       &.hover {
-//         color: @light-gray;
-//       }
-//     }
-//     text-decoration: underline;
-//   }
-// }
+
+.division-background-img {
+	img {
+		width: 100%;
+	}
+}
+ .byline {
+   color: lighten(@light-gray,10%);
+   font-size: 18px;
+   text-align: center;
+   padding-top: 20px;
+   @media @tablet {
+     color: @dark-gray;
+   }
+   @media @mobile {
+     font-size: 16px;
+     // color: @dark-gray;
+   }
+   a {
+     cursor: pointer;
+     color: lighten(@light-gray,10%);
+     &:hover {
+       color: white;
+     }
+     @media @tablet {
+       color: @dark-gray;
+       &.hover {
+         color: @light-gray;
+       }
+     }
+     text-decoration: underline;
+   }
+ }
+
+
 //
 // #stick-ph {
 //   display: none;
@@ -303,30 +311,30 @@
 //   }
 // }
 //
-// .hed-wrapper {
-//   margin-top: 50px;
-//   color: @dark-gray-blue;
-//   @media @mobile {
-//     margin-top: 0;
-//     padding-top: 30px;
-//     padding-bottom: 15px;
-//     color: darken(@gray-blue,25%);
-//     background: rgba(255,255,255,0.9);
-//   }
-//   .hed {
-//     font-family: @bold-graphics;
-//     font-size: 30px;
-//     max-width: 450px;
-//     margin: auto;
-//     line-height:1.4;
-//     @media @tablet {
-//       font-size: 25px;
-//     }
-//     @media @mobile {
-//       font-size: 25px;
-//     }
-//   }
-// }
+ .hed-wrapper {
+   margin-top: 50px;
+   color: @dark-gray-blue;
+   @media @mobile {
+     margin-top: 0;
+     padding-top: 30px;
+     padding-bottom: 15px;
+     color: darken(@gray-blue,25%);
+     background: rgba(255,255,255,0.9);
+   }
+   .hed {
+     font-family: @bold-graphics;
+     font-size: 30px;
+     max-width: 450px;
+     margin: auto;
+     line-height:1.4;
+     @media @tablet {
+       font-size: 25px;
+     }
+     @media @mobile {
+       font-size: 25px;
+     }
+   }
+ }
 //
 //
 // body {
