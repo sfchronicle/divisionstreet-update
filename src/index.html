@@ -69,7 +69,10 @@
               <p><%=d.value%></p>
             <% } %>
           <% }); %>
-          <div class="map"></div>
+          <div class="map-container">
+            <div class="map" id="map<%=key%>"></div>
+            <div class="map-annotation" id="map-annotation-<%=key%>"></div>
+          </div>
 
         </div>
 
@@ -96,7 +99,7 @@
     <%= t.include("partials/_footer.html") %>
 
     <script>
-      var protestData = <%= JSON.stringify(json.division.profiles) %>
+      var mapData = <%= JSON.stringify(json.map) %>
     </script>
 
     <script src="app.js" async></script>
