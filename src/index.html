@@ -38,6 +38,7 @@
       <% json.division.text.forEach(function(d,dIDX){ %>
         <% if (d.type == "text") { %>
           <p><%=d.value%></p>
+          <%= t.include("partials/_infobox.html") %>
         <% } else if (d.type == "image") { %>
           <div class="story-img <%= d.value[0].Size %>">
             <img src="http://ww2.hdnux.com/photos/61/64/55/<%= d.value[0].WcmID %>/5/2000x0.jpg">
