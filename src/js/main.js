@@ -55,7 +55,7 @@ function handleScroll() {
 
   // figure out where the top of the page is, and also the top and beginning of the map content
   var pos = $(this).scrollTop();
-  var pos_profiles_top = $('#top-of-profiles').offset().top;
+  var pos_profiles_top = $('#top-of-profiles').offset().top - offset_top;
   var pos_profiles_bottom = $('#bottom-of-profiles').offset().top-bottomOffset;
 
   // show the landing of the page if the reader is at the top
@@ -83,25 +83,30 @@ function handleScroll() {
 
     if (currentProfile != prevProfile) {
       // $('#' + currentProfile).addClass('active', 1000);
-      document.getElementById(currentProfile).classList.add("active");
-      console.log("current: " + currentProfile);
-      console.log("prev: "+ prevProfile);
+      document.getElementById("gray").classList.add("active");
+      
+      if (currentProfile) {
+        document.getElementById(currentProfile).classList.add("active");
+        // console.log("current: " + currentProfile);
+        // console.log("prev: "+ prevProfile);
+      }
       if (prevProfile) {
         document.getElementById(prevProfile).classList.remove("active");
       }
       prevProfile = currentProfile;
       // document.getElementById(currentProfile).classList.add("active");
     } else {
-      document.getElementById(currentProfile).classList.add("active");
+      // document.getElementById("brownell").classList.add("active");
       // $('#' + currentProfile).addClass('active', 1000);
     }
+
   // hide the day box if the reader is at the bottom of the page
-  } else {
+  } else if (pos > pos_profiles_bottom-300) {
     // prevProfile = "brownell";
     document.getElementById("brownell").classList.remove("active");
     currentProfile = null;
     console.log("AT THE BOTTOM");
-  }
+  } 
 };
 
 // coloring points on the map -------------------------------------------------
