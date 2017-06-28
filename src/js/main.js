@@ -19,7 +19,7 @@ require("leaflet");
   // var sf_long = -122.5;
   // var zoom_deg = 10;
 
-  var offset_scrolling = 0;
+  var offset_scrolling = 300;
   var bottomOffset = 200;
 // }
 var timeTimeout = 100;
@@ -80,9 +80,15 @@ $(document).ready(function() {
           if (currentProfile != prevProfile) {
             // $('#' + currentProfile).addClass('active', 1000);
             document.getElementById(currentProfile).classList.add("active");
+            // console.log("current: " + currentProfile);
+            // console.log("prev: "+ prevProfile);
+            if (prevProfile) {
+              document.getElementById(prevProfile).classList.remove("active");
+            }
             prevProfile = currentProfile;
             // document.getElementById(currentProfile).classList.add("active");
           } else {
+            document.getElementById(currentProfile).classList.add("active");
             // $('#' + currentProfile).addClass('active', 1000);
           }
           // prevmapIDX = currentIDX;
@@ -95,6 +101,8 @@ $(document).ready(function() {
 
         // hide the day box if the reader is at the bottom of the page
         } else {
+          // prevProfile = "brownell";
+          document.getElementById("brownell").classList.remove("active");
           currentProfile = null;
           console.log("AT THE BOTTOM");
           // document.getElementById("day-box").classList.remove("show");

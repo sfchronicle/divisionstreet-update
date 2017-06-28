@@ -206,13 +206,16 @@
 
 
 .profile {
-	opacity: .6;
+  -webkit-transition: opacity 200ms linear;
+  -ms-transition: opacity 200ms linear;
+	transition: opacity 400ms linear;
+	opacity: .5;
 }
 
 .active {
   -webkit-transition: opacity 200ms linear;
   -ms-transition: opacity 200ms linear;
-  transition: opacity 200ms linear;
+  transition: opacity 400ms linear;
 	opacity: 1;
 }
 
