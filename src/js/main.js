@@ -71,12 +71,12 @@ function handleScroll() {
 
     currentProfile = null;
     listKeys.forEach(function(profile,profileIDX) {
-      if (profile != "brownell") {
+      if (profile != "brownell" && profile != "mckinney") {
         if (pos > pos_profile[profileIDX] - offset_scrolling) {
           currentProfile = profile;
         }
       } else {
-        if (pos > pos_profile[profileIDX] + 400) {
+        if (pos > pos_profile[profileIDX] + 300) {
           currentProfile = profile;
         }
       }
