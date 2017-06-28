@@ -43,6 +43,8 @@
             <img src="http://ww2.hdnux.com/photos/61/64/55/<%= d.value[0].WcmID %>/5/2000x0.jpg">
             <div class="caption"><%= d.value[0].Caption %></div>
           </div>
+        <% } else if (d.type == "infobox") { %>
+          <%= t.include("partials/_infobox.html") %>
         <% } %>
       <% }); %>
 

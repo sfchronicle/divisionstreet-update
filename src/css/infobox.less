@@ -1,7 +1,7 @@
 #embed-infobox{
   float: right;
   width: 300px;
-  margin: 0 0 40px 68px;
+  margin: 0 40px 40px 68px;
   color: #585858;
   padding: 5px 0 10px;
   font-family: @med-graphics;
@@ -23,6 +23,10 @@
 
   p{
     margin: 0 0 1em;
+
+    a{
+    color:@redlinks;
+    }
     @media (max-width: 480px){
       font-size:14px;
     }
@@ -48,5 +52,37 @@
     width: 150px;
     padding-right: 10px;
     margin-top: 0px;
+  }
+}
+p a{
+  color:@redlinks;
+  &:hover{
+  color:@redlinks;
+  }
+}
+a{
+  color:@redlinks;
+  &:hover{
+  color:@redlinks;
+  }
+}
+
+.specialhead-top{
+ font-family:Dispatch;
+ color:@red;
+ font-size:16px; 
+ @media @tablet{
+  font-size:11px;
+  vertical-align:1px;
+ }
+}
+
+.link.social a {
+    color: #333;
+}
+
+.link{
+  @media @tablet{
+    padding:3px 10px 0 0;
   }
 }
