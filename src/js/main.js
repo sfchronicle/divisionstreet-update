@@ -22,8 +22,6 @@ if (screen.width <= 480) {
   var offset_scrolling = 200;
 }
 
-var offset_scrolling = 200;
-var bottomOffset = 200;
 var mapOffset = 400;
 var timeTimeout = 200;
 
