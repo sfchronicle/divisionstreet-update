@@ -18,8 +18,8 @@ if (screen.width <= 480) {
   var zoom_deg = 13;
 
   var offset_top = 900;
-  var bottomOffset = 600;
-  var offset_scrolling = 200;
+  var bottomOffset = 300;
+  var offset_scrolling = 400;
 }
 
 var mapOffset = 400;
