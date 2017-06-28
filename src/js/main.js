@@ -46,6 +46,8 @@ $(window).scroll(function () {
 var currentProfile, prevProfile, currentMap;
 prevProfile = null;
 
+//console_log(pos_profile);
+
 // function for updating with scroll
 function handleScroll() {
 
@@ -57,18 +59,18 @@ function handleScroll() {
   var pos_profiles_bottom = $('#bottom-of-profiles').offset().top-bottomOffset;
 
   // show the landing of the page if the reader is at the top
-  if (pos+600 < pos_profiles_top){
+  if (pos < pos_profiles_top){
     document.getElementById("gray").classList.remove("active");
     console.log("AT THE TOP");
     currentProfile = null;
 
   // show the appropriate dots if the reader is in the middle of the page
-  } else if (pos < pos_profiles_bottom){
+  } else if (pos < pos_profiles_bottom-300){
     console.log("IN THE MIDDLE");
 
     currentProfile = null;
     listKeys.forEach(function(profile,profileIDX) {
-      if (pos > pos_profile[profileIDX]) {
+      if (pos > pos_profile[profileIDX]-100) {
         currentProfile = profile;
       }
       if (pos > pos_map[profileIDX]) {
@@ -78,6 +80,7 @@ function handleScroll() {
         // currentMapVar.setView(mapData[profileIDX], 12, {"animation": true});
       }
     });
+
     if (currentProfile != prevProfile) {
       // $('#' + currentProfile).addClass('active', 1000);
       document.getElementById(currentProfile).classList.add("active");
