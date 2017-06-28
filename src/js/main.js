@@ -10,7 +10,7 @@ if (screen.width <= 480) {
 
   var offset_top = 900;
   var bottomOffset = 100;
-  var offset_scrolling = 200;
+  var offset_scrolling = 0;
 
 } else {
   var sf_lat = 37.8;
@@ -18,8 +18,8 @@ if (screen.width <= 480) {
   var zoom_deg = 13;
 
   var offset_top = 900;
-  var bottomOffset = 300;
-  var offset_scrolling = 400;
+  var bottomOffset = 400;
+  var offset_scrolling = 200;
 }
 
 var mapOffset = 400;
@@ -68,10 +68,17 @@ function handleScroll() {
   } else if (pos < pos_profiles_bottom){
     console.log("IN THE MIDDLE");
 
+
     currentProfile = null;
     listKeys.forEach(function(profile,profileIDX) {
-      if (pos > pos_profile[profileIDX] - 100) {
-        currentProfile = profile;
+      if (profile != "brownell") {
+        if (pos > pos_profile[profileIDX] - offset_scrolling) {
+          currentProfile = profile;
+        }
+      } else {
+        if (pos > pos_profile[profileIDX] + 400) {
+          currentProfile = profile;
+        }
       }
       if (pos > pos_map[profileIDX]) {
         currentMap = profile;
@@ -88,8 +95,7 @@ function handleScroll() {
 
       if (currentProfile) {
         document.getElementById(currentProfile).classList.add("active");
-        // console.log("current: " + currentProfile);
-        // console.log("prev: "+ prevProfile);
+
       }
       if (prevProfile) {
         document.getElementById(prevProfile).classList.remove("active");
@@ -110,8 +116,7 @@ function handleScroll() {
 
  
   // hide the day box if the reader is at the bottom of the page
-  } else if (pos > pos_profiles_bottom) {
-
+  } else if (pos > pos_profiles_bottom ) {
     currentProfile = null;
     document.getElementById("brownell").classList.remove("active");
     console.log("AT THE BOTTOM");
