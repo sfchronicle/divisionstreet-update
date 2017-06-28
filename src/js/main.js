@@ -56,7 +56,7 @@ function handleScroll() {
   // figure out where the top of the page is, and also the top and beginning of the map content
   var pos = $(this).scrollTop();
   var pos_profiles_top = $('#top-of-profiles').offset().top - offset_top;
-  var pos_profiles_bottom = $('#bottom-of-profiles').offset().top-bottomOffset;
+  var pos_profiles_bottom = $('#bottom-of-profiles').offset().top - bottomOffset;
 
   // show the landing of the page if the reader is at the top
   if (pos < pos_profiles_top){
@@ -65,12 +65,12 @@ function handleScroll() {
     currentProfile = null;
 
   // show the appropriate dots if the reader is in the middle of the page
-  } else if (pos < pos_profiles_bottom-300){
+  } else if (pos < pos_profiles_bottom){
     console.log("IN THE MIDDLE");
 
     currentProfile = null;
     listKeys.forEach(function(profile,profileIDX) {
-      if (pos > pos_profile[profileIDX]-100) {
+      if (pos > pos_profile[profileIDX] - 100) {
         currentProfile = profile;
       }
       if (pos > pos_map[profileIDX]) {
@@ -84,7 +84,7 @@ function handleScroll() {
     if (currentProfile != prevProfile) {
       // $('#' + currentProfile).addClass('active', 1000);
       document.getElementById("gray").classList.add("active");
-
+      
       if (currentProfile) {
         document.getElementById(currentProfile).classList.add("active");
         // console.log("current: " + currentProfile);
@@ -96,17 +96,19 @@ function handleScroll() {
       prevProfile = currentProfile;
       // document.getElementById(currentProfile).classList.add("active");
     } else {
-      // document.getElementById("brownell").classList.add("active");
+      //document.getElementById("brownell").classList.add("active");
       // $('#' + currentProfile).addClass('active', 1000);
     }
-
+      // if (!document.getElementById("brownell").classList.contains("active")) {
+    //   document.getElementById("brownell").classList.add("active");
+    //   }
   // hide the day box if the reader is at the bottom of the page
   } else if (pos > pos_profiles_bottom-300) {
     // prevProfile = "brownell";
     document.getElementById("brownell").classList.remove("active");
     currentProfile = null;
     console.log("AT THE BOTTOM");
-  }
+  } 
 };
 
 // coloring points on the map -------------------------------------------------
@@ -146,7 +148,7 @@ listKeys.forEach(function(d,dIDX){
   } else if (d == "brownell"){
     brownellMapVar = drawMap(mapData,"map"+d,d,eval(d+"MapVar"));
   }
-  document.getElementById("map-annotation-"+d).innerHTML = "<div class='maphed'>"+mapData[dIDX].head+"</div><div class='mapsubhed'>"+mapData[dIDX].text+"</div><div class='maplink link"+d+"'><a href='http://projects.sfchronicle.com/sf-homeless/division-street-map/#"+d+"' target='_blank'><i class='fa fa-external-link-square' aria-hidden='true'></i> See "+mapData[dIDX].namelabel+" original path</a></div>";
+  document.getElementById("map-annotation-"+d).innerHTML = "<div class='maphed'>"+mapData[dIDX].head+"</div><div class='mapsubhed'>"+mapData[dIDX].text+"</div>";
 });
 
 // function to generate the map ------------------------------------------------
@@ -160,7 +162,7 @@ function drawMap(mapData,mapID,mapkey,mapvar){
   }).setView([sf_lat,sf_long], zoom_deg);;
 
   // add tiles to the map
-  var mapLayer = L.tileLayer("https://api.mapbox.com/styles/v1/emro/cj4hhr9bf29kn2smlf489bc82/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZW1ybyIsImEiOiJjaXl2dXUzMGQwMDdsMzJuM2s1Nmx1M29yIn0._KtME1k8LIhloMyhMvvCDA",{attribution: '© <a href="https://www.mapbox.com/map-feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>'})
+  var mapLayer = L.tileLayer("https://api.mapbox.com/styles/v1/emro/cj4g94j371v732rnptcghibsy/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZW1ybyIsImEiOiJjaXl2dXUzMGQwMDdsMzJuM2s1Nmx1M29yIn0._KtME1k8LIhloMyhMvvCDA",{attribution: '© <a href="https://www.mapbox.com/map-feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>'})
   mapLayer.addTo(mapvar);
 
   // dragging and zooming controls
