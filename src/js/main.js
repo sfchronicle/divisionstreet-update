@@ -18,7 +18,7 @@ if (screen.width <= 480) {
   var zoom_deg = 13;
 
   var offset_top = 900;
-  var bottomOffset = 200;
+  var bottomOffset = 700;
   var offset_scrolling = 200;
 }
 
@@ -81,6 +81,7 @@ function handleScroll() {
       }
     });
 
+
     if (currentProfile != prevProfile) {
       // $('#' + currentProfile).addClass('active', 1000);
       document.getElementById("gray").classList.add("active");
@@ -93,20 +94,34 @@ function handleScroll() {
       if (prevProfile) {
         document.getElementById(prevProfile).classList.remove("active");
       }
+
+      // if (currentProfile == "brownell" && prevProfile == null) {
+      //   console.log('hello');
+      //   document.getElementById("brownell").classList.add("active");
+      // }
+
       prevProfile = currentProfile;
       // document.getElementById(currentProfile).classList.add("active");
     } else {
       //document.getElementById("brownell").classList.add("active");
       // $('#' + currentProfile).addClass('active', 1000);
     }
+
+      if (currentProfile == "brownell") {
+        document.getElementById("brownell").classList.add("active");
+      }
+
       // if (!document.getElementById("brownell").classList.contains("active")) {
     //   document.getElementById("brownell").classList.add("active");
     //   }
   // hide the day box if the reader is at the bottom of the page
-  } else if (pos > pos_profiles_bottom-300) {
+  } else if (pos > pos_profiles_bottom) {
+    console.log(pos);
+    console.log(pos_profiles_bottom);
     // prevProfile = "brownell";
-    document.getElementById("brownell").classList.remove("active");
     currentProfile = null;
+    document.getElementById("brownell").classList.remove("active");
+    
     console.log("AT THE BOTTOM");
   }
 };
