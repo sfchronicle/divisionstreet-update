@@ -18,7 +18,7 @@ if (screen.width <= 480) {
   var zoom_deg = 13;
 
   var offset_top = 900;
-  var bottomOffset = 700;
+  var bottomOffset = 600;
   var offset_scrolling = 200;
 }
 
@@ -95,10 +95,7 @@ function handleScroll() {
         document.getElementById(prevProfile).classList.remove("active");
       }
 
-      // if (currentProfile == "brownell" && prevProfile == null) {
-      //   console.log('hello');
-      //   document.getElementById("brownell").classList.add("active");
-      // }
+
 
       prevProfile = currentProfile;
       // document.getElementById(currentProfile).classList.add("active");
@@ -111,17 +108,12 @@ function handleScroll() {
         document.getElementById("brownell").classList.add("active");
       }
 
-      // if (!document.getElementById("brownell").classList.contains("active")) {
-    //   document.getElementById("brownell").classList.add("active");
-    //   }
+ 
   // hide the day box if the reader is at the bottom of the page
   } else if (pos > pos_profiles_bottom) {
-    console.log(pos);
-    console.log(pos_profiles_bottom);
-    // prevProfile = "brownell";
+
     currentProfile = null;
     document.getElementById("brownell").classList.remove("active");
-    
     console.log("AT THE BOTTOM");
   }
 };
