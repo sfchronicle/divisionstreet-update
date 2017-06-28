@@ -44,7 +44,8 @@ $(document).ready(function() {
     });
 
 
-    var currentProfile;
+    var currentProfile, prevProfile;
+    prevProfile = null;
     // function for updating with scroll
     // $(window).scroll(function () {
     function handleScroll() {
@@ -67,8 +68,8 @@ $(document).ready(function() {
 
           currentProfile = null;
           listKeys.forEach(function(profile,profileIDX) {
-            console.log(profile);
-            console.log(offset_scrolling);
+            // console.log(profile);
+            // console.log(offset_scrolling);
             // var pos_profile = $('#'+profile).offset().top-offset_scrolling;
             // console.log(pos_profile);
             if (pos > pos_profile[profileIDX]) {
@@ -76,7 +77,14 @@ $(document).ready(function() {
               // currentIDX = Math.max(profileIDX,currentIDX);
             }
           });
-          console.log(currentProfile);
+          if (currentProfile != prevProfile) {
+            // $('#' + currentProfile).addClass('active', 1000);
+            document.getElementById(currentProfile).classList.add("active");
+            prevProfile = currentProfile;
+            // document.getElementById(currentProfile).classList.add("active");
+          } else {
+            // $('#' + currentProfile).addClass('active', 1000);
+          }
           // prevmapIDX = currentIDX;
           // var dayData = protestData.filter(function(d) {
           //     return d.Count <= currentIDX
@@ -235,7 +243,7 @@ $(document).ready(function() {
         .data(mapData)
         .enter().append("circle")
         .attr("id",function(d) {
-          return d.id;
+          return d.id+"circle";
         })
         .attr("class",function(d) {
           return "dot";
