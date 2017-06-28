@@ -4,8 +4,8 @@ require("leaflet");
 
 // setting parameters for the center of the map and initial zoom level
 if (screen.width <= 480) {
-  var sf_lat = 37.5;
-  var sf_long = -122.23;
+  var sf_lat = 37.76;
+  var sf_long = -122.42;
   var zoom_deg = 12;
 
   var offset_top = 900;
@@ -84,7 +84,7 @@ function handleScroll() {
     if (currentProfile != prevProfile) {
       // $('#' + currentProfile).addClass('active', 1000);
       document.getElementById("gray").classList.add("active");
-      
+
       if (currentProfile) {
         document.getElementById(currentProfile).classList.add("active");
         // console.log("current: " + currentProfile);
@@ -108,7 +108,7 @@ function handleScroll() {
     document.getElementById("brownell").classList.remove("active");
     currentProfile = null;
     console.log("AT THE BOTTOM");
-  } 
+  }
 };
 
 // coloring points on the map -------------------------------------------------

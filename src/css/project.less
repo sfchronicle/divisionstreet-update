@@ -165,6 +165,9 @@
   &.quinn { border-bottom: 4px solid @quinn; }
   &.mckinney { border-bottom: 4px solid @mckinney; }
   &.brownell { border-bottom: 4px solid @brownell; }
+  @media @mobile {
+    font-size: 24px;
+  }
 }
 
 .description {
@@ -232,6 +235,9 @@
   border-top: 1px solid @light-gray;
   border-bottom: 1px solid @light-gray;
   background: lighten(@light-gray,18%);
+  @media @mobile {
+    padding: 30px 0;
+  }
 }
 
 .maplink {
