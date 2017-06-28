@@ -57,11 +57,10 @@
         <% var obj = json.division.profiles[0][key]; %>
 
         <div class="profile" id="<%=key%>">
-          
+
           <% obj.forEach(function(d,dIDX) { %>
             <% if (d.type == "Person") { %>
-
-              <div class="name"><%= d.value %></div>
+              <div class="name <%=d.value.split(/[, ]+/).pop().toLowerCase()%>"><%= d.value %></div>
             <% } else if (d.type == "Description"){ %>
               <div class="description"><%= d.value %></div>
             <% } else if (d.type == "image"){ %>

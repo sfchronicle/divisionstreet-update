@@ -20,6 +20,22 @@ if (screen.width <= 480) {
   var bottomOffset = 200;
 }
 
+function colorDots(name){
+  if (name == "gray") {
+    return "#D13D59";
+  } else if (name == "smirf"){
+    return "#42A18F";
+  } else if (name == "mayweather") {
+    return "#F57958";
+  } else if (name == "quinn") {
+    return "#FFCC32";
+  } else if (name == "mckinney") {
+    return "#0085BB";
+  } else if (name == "brownell") {
+    return "#CF5EA3";
+  }
+}
+
 mapData.forEach(function(d) {
   d.LatLng = new L.LatLng(+d.lat, +d.lon);
 });
@@ -70,18 +86,18 @@ function drawMap(mapData,mapID,mapkey){
       if (d.id == mapkey) {
         return 1.0;
       } else {
-        return 0.2;
+        return 0.4;
       }
     })
     .style("fill", function(d) {
-      return "#c11a1a";//"#E32B2B";//"#3C87CF";
+      return colorDots(d.id);//"#E32B2B";//"#3C87CF";
     })
     .style("stroke","#696969")
     .attr("r", function(d) {
       if (screen.width <= 480) {
         return 6;
       } else {
-        return 10;
+        return 12;
       }
     });
 
