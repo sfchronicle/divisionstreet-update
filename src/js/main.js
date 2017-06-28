@@ -2,6 +2,57 @@ require("./lib/social"); //Do not delete
 var d3 = require('d3');
 require("leaflet");
 
+
+    $(window).load(function() {
+
+    var gray_pos = $('#gray').offset().top - 300;
+    var smirf_pos = $('#smirf').offset().top - 300;
+    var mayweather_pos = $('#mayweather').offset().top - 300; 
+    var quinn_pos = $('#quinn').offset().top - 300; 
+    var mckinney_pos = $('#mckinney').offset().top - 300; 
+    var brownell_pos = $('#brownell').offset().top - 300; 
+
+    console.log(gray_pos);
+    console.log(smirf_pos);
+    console.log(mayweather_pos);
+    console.log(quinn_pos);
+    console.log(mckinney_pos);
+    console.log(brownell_pos);
+
+  
+    $(window).on('scroll', function() {
+      var curr_pos = window.pageYOffset;
+      
+      if (curr_pos > gray_pos && curr_pos < smirf_pos) {
+        $('#gray').addClass('active');
+        $('#smirf').removeClass('active');
+      } else if (curr_pos > smirf_pos && curr_pos < mayweather_pos) {
+        console.log("got to smirf");
+        $('#gray').removeClass('active');
+        $('#smirf').addClass('active');
+        $('#mayweather').removeClass('active');
+      } else if (curr_pos > mayweather_pos && curr_pos < quinn_pos) {
+        $('#smirf').removeClass('active');
+        $('#mayweather').addClass('active');
+        $('#quinn').removeClass('active');
+      } else if (curr_pos > quinn_pos && curr_pos < mckinney_pos) {
+        $('#mayweather').removeClass('active');
+        $('#quinn').addClass('active');
+        $('#mckinney').removeClass('active');
+      } else if (curr_pos > mckinney_pos && curr_pos < brownell_pos) {
+        $('#quinn').removeClass('active');
+        $('#mckinney').addClass('active');
+        $('#brownell').removeClass('active');
+      } else if (curr_pos > brownell_pos) {
+        $('#mckinney').removeClass('active');
+        $('#brownell').addClass('active');
+      } else if (curr_pos < gray_pos) {
+        $('#gray').removeClass('active');
+      }
+
+    });
+
+  
 // setting parameters for the center of the map and initial zoom level
 if (screen.width <= 480) {
   var sf_lat = 37.5;
@@ -115,3 +166,5 @@ function drawMap(mapData,mapID,mapkey){
   }
 
 }
+
+});

@@ -102,70 +102,9 @@
     <%= t.include("partials/_footer.html") %>
 
     <script>
-    $(window).load(function() {
-      var mapData = <%= JSON.stringify(json.map) %> 
-
-    // $('#gray').addClass('active');
-    console.log("hello");
-
-    var gray_pos = $('#gray').offset().top - 300;
-    var smirf_pos = $('#smirf').offset().top - 300;
-    var mayweather_pos = $('#mayweather').offset().top - 300; 
-    var quinn_pos = $('#quinn').offset().top - 300; 
-    var mckinney_pos = $('#mckinney').offset().top - 300; 
-    var brownell_pos = $('#brownell').offset().top - 300; 
-    console.log("brownell position: " + brownell_pos);
-
-  
-
-    // var element_position = $('#scroll-to').offset().top;
-
-    
-
-    $(window).on('scroll', function() {
-      var curr_pos = window.pageYOffset;
-      console.log(curr_pos);
-      
-      if (curr_pos > gray_pos && curr_pos < smirf_pos) {
-        $('#gray').addClass('active');
-        $('#smirf').removeClass('active');
-      } else if (curr_pos > smirf_pos && curr_pos < mayweather_pos) {
-        $('#gray').removeClass('active');
-        $('#smirf').addClass('active');
-        $('#mayweather').removeClass('active');
-      } else if (curr_pos > mayweather_pos && curr_pos < quinn_pos) {
-        $('#smirf').removeClass('active');
-        $('#mayweather').addClass('active');
-        $('#quinn').removeClass('active');
-      } else if (curr_pos > quinn_pos && curr_pos < mckinney_pos) {
-        $('#mayweather').removeClass('active');
-        $('#quinn').addClass('active');
-        $('#mckinney').removeClass('active');
-      } else if (curr_pos > mckinney_pos && curr_pos < brownell_pos) {
-        $('#quinn').removeClass('active');
-        $('#mckinney').addClass('active');
-        $('#brownell').removeClass('active');
-      } else if (curr_pos > brownell_pos) {
-        $('#mckinney').removeClass('active');
-        $('#brownell').addClass('active');
-      } else if (curr_pos < gray_pos) {
-        $('#gray').removeClass('active');
-      }
-
-    
-      // var hT = 
-
-      // var y_scroll_pos = window.pageYOffset;
-      // var scroll_pos_test = element_position;
-
-      // if(y_scroll_pos > scroll_pos_test) {
-      //   console.log(this);
-      // }
-    });
-
-  });
-
+    var mapData = <%= JSON.stringify(json.map) %> 
     </script>
+
 
     <script src="app.js" async></script>
     <%= t.include("partials/_helloSFC.html") %>
