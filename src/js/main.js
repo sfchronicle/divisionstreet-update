@@ -146,7 +146,7 @@ listKeys.forEach(function(d,dIDX){
   } else if (d == "brownell"){
     brownellMapVar = drawMap(mapData,"map"+d,d,eval(d+"MapVar"));
   }
-  document.getElementById("map-annotation-"+d).innerHTML = "<div class='maphed'>"+mapData[dIDX].head+"</div><div class='mapsubhed'>"+mapData[dIDX].text+"</div>";
+  document.getElementById("map-annotation-"+d).innerHTML = "<div class='maphed'>"+mapData[dIDX].head+"</div><div class='mapsubhed'>"+mapData[dIDX].text+"</div><div class='maplink link"+d+"'><a href='http://projects.sfchronicle.com/sf-homeless/division-street-map/' target='_blank'><i class='fa fa-external-link-square' aria-hidden='true'></i> See "+mapData[dIDX].namelabel+" original path</a></div>";
 });
 
 // function to generate the map ------------------------------------------------
@@ -160,7 +160,7 @@ function drawMap(mapData,mapID,mapkey,mapvar){
   }).setView([sf_lat,sf_long], zoom_deg);;
 
   // add tiles to the map
-  var mapLayer = L.tileLayer("https://api.mapbox.com/styles/v1/emro/cj4g94j371v732rnptcghibsy/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZW1ybyIsImEiOiJjaXl2dXUzMGQwMDdsMzJuM2s1Nmx1M29yIn0._KtME1k8LIhloMyhMvvCDA",{attribution: '© <a href="https://www.mapbox.com/map-feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>'})
+  var mapLayer = L.tileLayer("https://api.mapbox.com/styles/v1/emro/cj4hhr9bf29kn2smlf489bc82/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZW1ybyIsImEiOiJjaXl2dXUzMGQwMDdsMzJuM2s1Nmx1M29yIn0._KtME1k8LIhloMyhMvvCDA",{attribution: '© <a href="https://www.mapbox.com/map-feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>'})
   mapLayer.addTo(mapvar);
 
   // dragging and zooming controls
