@@ -114,7 +114,7 @@ function handleScroll() {
         document.getElementById("brownell").classList.add("active");
       }
 
- 
+
   // hide the day box if the reader is at the bottom of the page
   } else if (pos > pos_profiles_bottom ) {
     currentProfile = null;
@@ -204,7 +204,7 @@ function drawMap(mapData,mapID,mapkey,mapvar){
       if (d.id == mapkey) {
         return 1.0;
       } else {
-        return 0.2;
+        return 0;
       }
     })
     .style("fill", function(d) {
