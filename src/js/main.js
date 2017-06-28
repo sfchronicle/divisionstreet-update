@@ -57,7 +57,7 @@ function handleScroll() {
   var pos_profiles_bottom = $('#bottom-of-profiles').offset().top-bottomOffset;
 
   // show the landing of the page if the reader is at the top
-  if (pos < pos_profiles_top){
+  if (pos+600 < pos_profiles_top){
     document.getElementById("gray").classList.remove("active");
     console.log("AT THE TOP");
     currentProfile = null;
@@ -81,8 +81,8 @@ function handleScroll() {
     if (currentProfile != prevProfile) {
       // $('#' + currentProfile).addClass('active', 1000);
       document.getElementById(currentProfile).classList.add("active");
-      // console.log("current: " + currentProfile);
-      // console.log("prev: "+ prevProfile);
+      console.log("current: " + currentProfile);
+      console.log("prev: "+ prevProfile);
       if (prevProfile) {
         document.getElementById(prevProfile).classList.remove("active");
       }
