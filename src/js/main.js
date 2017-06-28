@@ -84,7 +84,7 @@ function handleScroll() {
     if (currentProfile != prevProfile) {
       // $('#' + currentProfile).addClass('active', 1000);
       document.getElementById("gray").classList.add("active");
-      
+
       if (currentProfile) {
         document.getElementById(currentProfile).classList.add("active");
         // console.log("current: " + currentProfile);
@@ -106,7 +106,7 @@ function handleScroll() {
     document.getElementById("brownell").classList.remove("active");
     currentProfile = null;
     console.log("AT THE BOTTOM");
-  } 
+  }
 };
 
 // coloring points on the map -------------------------------------------------
@@ -146,7 +146,7 @@ listKeys.forEach(function(d,dIDX){
   } else if (d == "brownell"){
     brownellMapVar = drawMap(mapData,"map"+d,d,eval(d+"MapVar"));
   }
-  document.getElementById("map-annotation-"+d).innerHTML = "<div class='maphed'>"+mapData[dIDX].head+"</div><div class='mapsubhed'>"+mapData[dIDX].text+"</div><div class='maplink link"+d+"'><a href='http://projects.sfchronicle.com/sf-homeless/division-street-map/' target='_blank'><i class='fa fa-external-link-square' aria-hidden='true'></i> See "+mapData[dIDX].namelabel+" original path</a></div>";
+  document.getElementById("map-annotation-"+d).innerHTML = "<div class='maphed'>"+mapData[dIDX].head+"</div><div class='mapsubhed'>"+mapData[dIDX].text+"</div><div class='maplink link"+d+"'><a href='http://projects.sfchronicle.com/sf-homeless/division-street-map/#"+d+"' target='_blank'><i class='fa fa-external-link-square' aria-hidden='true'></i> See "+mapData[dIDX].namelabel+" original path</a></div>";
 });
 
 // function to generate the map ------------------------------------------------
