@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+  <head>
+    <title><%= json.project.seo_title %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="__sync_contentCategory" content="meterA">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script src="https://npmcdn.com/flickity@1.2/dist/flickity.pkgd.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flickity@1.2/dist/flickity.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+
+  <body>
+
+
+    <div class="top-container">
+
+
+
+      <div id="brownell_slideshow" class="carousel slideshow js-flickity" data-flickity-options='{ "imagesLoaded": true, "pageDots": false }'>
+        <% json.division['brownell_slideshow'].forEach(function(slide) { %>
+        <div class="carousel-cell">
+          <img src="http://ww1.hdnux.com/photos/61/75/22/<%= slide.Wcm %>/7/premium_landscape.jpg">
+         <div class="caption"><%= slide.Caption %></div>
+        </div>
+        <% }); %>
+      </div>
+
+      <div id="mckinney_slideshow" class="carousel slideshow js-flickity" data-flickity-options='{ "imagesLoaded": true, "pageDots": false }'>
+        <% json.division['mckinney_slideshow'].forEach(function(slide) { %>
+        <div class="carousel-cell">
+          <img src="http://ww1.hdnux.com/photos/61/75/22/<%= slide.Wcm %>/7/premium_landscape.jpg">
+         <div class="caption"><%= slide.Caption %></div>
+        </div>
+        <% }); %>
+      </div>
+
+      <div id="quinn_slideshow" class="carousel slideshow js-flickity" data-flickity-options='{ "imagesLoaded": true, "pageDots": false }'>
+        <% json.division['quinn_slideshow'].forEach(function(slide) { %>
+        <div class="carousel-cell">
+          <img src="http://ww1.hdnux.com/photos/61/75/22/<%= slide.Wcm %>/7/premium_landscape.jpg">
+         <div class="caption"><%= slide.Caption %></div>
+        </div>
+        <% }); %>
+      </div>
+
+
+      <div id="mayweather_slideshow" class="carousel slideshow js-flickity" data-flickity-options='{ "imagesLoaded": true, "pageDots": false }'>
+        <% json.division['mayweather_slideshow'].forEach(function(slide) { %>
+        <div class="carousel-cell">
+          <img src="http://ww1.hdnux.com/photos/61/75/22/<%= slide.Wcm %>/7/premium_landscape.jpg">
+         <div class="caption"><%= slide.Caption %></div>
+        </div>
+        <% }); %>
+      </div>
+
+      <div id="smirf_slideshow" class="carousel slideshow js-flickity" data-flickity-options='{ "imagesLoaded": true, "pageDots": false }'>
+        <% json.division['smirf_slideshow'].forEach(function(slide) { %>
+        <div class="carousel-cell">
+          <img src="http://ww1.hdnux.com/photos/61/75/22/<%= slide.Wcm %>/7/premium_landscape.jpg">
+         <div class="caption"><%= slide.Caption %></div>
+        </div>
+        <% }); %>
+      </div>
+
+      <div id="kathy_slideshow" class="carousel slideshow js-flickity" data-flickity-options='{ "imagesLoaded": true, "pageDots": false }'>
+        <% json.division['kathy_slideshow'].forEach(function(slide) { %>
+        <div class="carousel-cell">
+          <img src="http://ww1.hdnux.com/photos/61/75/22/<%= slide.Wcm %>/7/premium_landscape.jpg">
+         <div class="caption"><%= slide.Caption %></div>
+        </div>
+        <% }); %>
+      </div>
+
+
+
+
+
+    </div>
+
+  </body>
+</html>

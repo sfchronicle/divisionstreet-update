@@ -1,0 +1,39 @@
+.slideshow{
+  width:80%;
+  max-width:750px;
+  margin: 2em auto 0;
+
+  @media @mobile{
+    margin-bottom:1em;
+  }
+}
+.flickity-prev-next-button.previous {
+    left: -50px;
+
+    @media @mobile{
+      left: -42px;
+    }
+}
+.flickity-prev-next-button .arrow {
+    fill: #fff;
+}
+.flickity-prev-next-button {
+    background: hsla(0, 0%, 40%, 0.75);
+
+    &:hover{
+    background:  hsla(0, 0%, 40%, 0.75);
+    }
+}
+.flickity-prev-next-button.next {
+    right: -50px;
+    @media @mobile{
+      right: -42px;
+    }
+}
+.carousel-cell {
+  width:100%;
+
+  img{
+    width:100%;
+  }
+}
