@@ -22,13 +22,12 @@
 
       <div class="division-background-img">
         <img src="http://ww2.hdnux.com/photos/61/64/55/<%=json.division.main_image[0].WcmID%>/5/2000x0.jpg"></img>
-        <div class="header-byline"><%=json.division.main_image[0].Photographer%></div>
       </div>
 
       <div class="hed-wrapper">
         <h1 class="title"><%=json.division.Headline%></div>
         <h3 class="deck"><%=json.division.Deck%></div>
-        <p class="author">By <a href="mailto:kfagan@sfchronicle.com"><%=json.division.Reporter%></a></div>
+        <div class="author">Story by <a href="mailto:kfagan@sfchronicle.com">Kevin Fagan</a>, <span>photos by <a href="mailto:lsuzuki@sfchronicle.com">Lea Suzuki</a></span></div>
         <div class="date"><%=json.division.Date%></div>
         <%= t.include("partials/_title_social.html") %>
       </div>
@@ -43,7 +42,7 @@
         <% } else if (d.type == "image") { %>
           <div class="story-img <%= d.value[0].Size %>">
             <img src="http://ww2.hdnux.com/photos/61/64/55/<%= d.value[0].WcmID %>/5/2000x0.jpg">
-            <div class="caption"><%= d.value[0].Caption %> <span class="photo-byline"> <%= d.value[0].Photographer %></span></div>
+            <div class="caption"><%= d.value[0].Caption %></div>
           </div>
         <% } %>
       <% }); %>
@@ -90,7 +89,7 @@
             <% } else if (d.type == "image"){ %>
               <div class="lead-image">
                 <img src="http://ww2.hdnux.com/photos/61/64/55/<%= d.value[0].WcmID %>/5/2000x0.jpg">
-                <div class="caption"><%= d.value[0].Caption %> <span class="photo-byline"> <%= d.value[0].Photographer %></span></div>
+                <div class="caption"><%= d.value[0].Caption %></div>
               </div>
             <% } else if (d.type == "text"){ %>
               <p><%=d.value%></p>
@@ -116,7 +115,7 @@
         <% } else if (d.type == "image") { %>
           <div class="story-img <%= d.value[0].Size %>">
             <img src="http://ww2.hdnux.com/photos/61/64/55/<%= d.value[0].WcmID %>/5/2000x0.jpg">
-            <div class="caption"><%= d.value[0].Caption %> <span class="photo-byline"> <%= d.value[0].Photographer %></span></div>
+            <div class="caption"><%= d.value[0].Caption %></div>
           </div>
         <% } %>
       <% }); %>
