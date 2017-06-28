@@ -2,36 +2,33 @@ require("./lib/social"); //Do not delete
 var d3 = require('d3');
 require("leaflet");
 
-// initial variable, which indicates that map is on landing on load
-// var prevmapIDX = -1;
-
 // setting parameters for the center of the map and initial zoom level
-// if (screen.width <= 480) {
-//   var sf_lat = 37.5;
-//   var sf_long = -122.23;
-//   var zoom_deg = 9;
-//
-//   var offset_top = 0;
-//   var bottomOffset = 100;
-//
-// } else {
-  // var sf_lat = 37.6;
-  // var sf_long = -122.5;
-  // var zoom_deg = 10;
+if (screen.width <= 480) {
+  var sf_lat = 37.5;
+  var sf_long = -122.23;
+  var zoom_deg = 12;
 
-  var offset_scrolling = 200;
-  if($(window).width() <= 480) {
-    offset_scrolling = 400;
-  }
+  var offset_top = 900;
+  var bottomOffset = 100;
+  var offset_scrolling = 400;
+
+} else {
+  var sf_lat = 37.6;
+  var sf_long = -122.5;
+  var zoom_deg = 11;
+
+  var offset_top = 900;
   var bottomOffset = 200;
-  var mapOffset = 400;
-// }
+  var offset_scrolling = 200;
+}
+
+var offset_scrolling = 200;
+var bottomOffset = 200;
+var mapOffset = 400;
 var timeTimeout = 200;
 
 var listKeys = ["gray","smirf","mayweather","quinn","mckinney","brownell"];
 var grayMapVar, smirfMapVar, mayweatherMapVar, quinnMapVar, mckinneyMapVar, brownellMapVar;
-
-console.log(mapData);
 
 // set up scrolling timeout
 var scrollTimer = null;
@@ -48,76 +45,8 @@ $(window).scroll(function () {
     scrollTimer = setTimeout(handleScroll, timeTimeout);   // set new timer
 });
 
-
 var currentProfile, prevProfile, currentMap;
 prevProfile = null;
-
-// function for updating with scroll
-// $(window).scroll(function () {
-// function handleScroll() {
-
-//     scrollTimer = null;
-
-//     // figure out where the top of the page is, and also the top and beginning of the map content
-//     var pos = $(this).scrollTop();
-//     var pos_profiles_top = $('#top-of-profiles').offset().top;
-//     var pos_profiles_bottom = $('#bottom-of-profiles').offset().top-bottomOffset;
-
-//     // show the landing of the page if the reader is at the top
-//     if (pos < pos_profiles_top){
-//       document.getElementById("gray").classList.remove("active");
-//       console.log("AT THE TOP");
-//       currentProfile = null;
-
-//     // show the appropriate dots if the reader is in the middle of the page
-//     } else if (pos < pos_profiles_bottom){
-//       console.log("IN THE MIDDLE");
-
-//       currentProfile = null;
-//       listKeys.forEach(function(profile,profileIDX) {
-//         // console.log(profile);
-//         // console.log(offset_scrolling);
-//         // var pos_profile = $('#'+profile).offset().top-offset_scrolling;
-//         // console.log(pos_profile);
-//         if (pos > pos_profile[profileIDX]) {
-//           currentProfile = profile;
-//           // currentIDX = Math.max(profileIDX,currentIDX);
-//         }
-//       });
-//       if (currentProfile != prevProfile) {
-//         // $('#' + currentProfile).addClass('active', 1000);
-//         document.getElementById(currentProfile).classList.add("active");
-//         // console.log("current: " + currentProfile);
-//         // console.log("prev: "+ prevProfile);
-//         if (prevProfile) {
-//           document.getElementById(prevProfile).classList.remove("active");
-//         }
-//         prevProfile = currentProfile;
-//         // document.getElementById(currentProfile).classList.add("active");
-//       } else {
-//         document.getElementById(currentProfile).classList.add("active");
-//         // $('#' + currentProfile).addClass('active', 1000);
-//       }
-//       // prevmapIDX = currentIDX;
-//       // var dayData = protestData.filter(function(d) {
-//       //     return d.Count <= currentIDX
-//       // });
-//       // drawMap(dayData,+currentIDX);
-//       // document.getElementById("day-box").classList.add("show");
-//       // document.getElementById("display-day").innerText = dayData[dayData.length-1]["Day"];
-
-//     // hide the day box if the reader is at the bottom of the page
-//     } else {
-//       // prevProfile = "brownell";
-//       document.getElementById("brownell").classList.remove("active");
-//       currentProfile = null;
-//       console.log("AT THE BOTTOM");
-//       // document.getElementById("day-box").classList.remove("show");
-//     }
-// };
-
-
-
 
 // function for updating with scroll
 function handleScroll() {
@@ -174,24 +103,7 @@ function handleScroll() {
   }
 };
 
-// setting parameters for the center of the map and initial zoom level
-if (screen.width <= 480) {
-  var sf_lat = 37.5;
-  var sf_long = -122.23;
-  var zoom_deg = 9;
-
-  var offset_top = 900;
-  var bottomOffset = 100;
-
-} else {
-  var sf_lat = 37.6;
-  var sf_long = -122.5;
-  var zoom_deg = 11;
-
-  var offset_top = 900;
-  var bottomOffset = 200;
-}
-
+// coloring points on the map -------------------------------------------------
 function colorDots(name){
   if (name == "gray") {
     return "#D13D59";
@@ -208,10 +120,12 @@ function colorDots(name){
   }
 }
 
+// creating d3/leaflet lat/lon objects ----------------------------------------
 mapData.forEach(function(d) {
   d.LatLng = new L.LatLng(+d.lat, +d.lon);
 });
 
+// generating maps and their annotations --------------------------------------
 listKeys.forEach(function(d,dIDX){
   if (d == "gray") {
     grayMapVar = drawMap(mapData,"map"+d,d,eval(d+"MapVar"));
@@ -229,7 +143,7 @@ listKeys.forEach(function(d,dIDX){
   document.getElementById("map-annotation-"+d).innerHTML = "<div class='maphed'>"+mapData[dIDX].head+"</div><div class='mapsubhed'>"+mapData[dIDX].text+"</div>";
 });
 
-
+// function to generate the map ------------------------------------------------
 function drawMap(mapData,mapID,mapkey,mapvar){
 
   // initialize map with center position and zoom levels
@@ -270,7 +184,7 @@ function drawMap(mapData,mapID,mapkey,mapvar){
       if (d.id == mapkey) {
         return 1.0;
       } else {
-        return 0.4;
+        return 0.2;
       }
     })
     .style("fill", function(d) {
@@ -279,7 +193,7 @@ function drawMap(mapData,mapID,mapkey,mapvar){
     .style("stroke","#696969")
     .attr("r", function(d) {
       if (screen.width <= 480) {
-        return 6;
+        return 10;
       } else {
         return 12;
       }
