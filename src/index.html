@@ -69,11 +69,12 @@
         </div>
         <div class="icon-img">
           <img src="http://ww2.hdnux.com/photos/61/64/55/13126205/3/square_small.jpg">
-        </div>        
+        </div>
       </div>
     </div>
 
-    <div class="map-container">
+    <div id="top-of-profiles"></div>
+    <div class="profiles-container">
 
       <% for (var key in json.division.profiles[0]) { %>
 
@@ -105,6 +106,7 @@
       <% }; %>
 
     </div>
+    <div id="bottom-of-profiles"></div>
 
     <div class="text">
 
@@ -125,7 +127,7 @@
     <%= t.include("partials/_footer.html") %>
 
     <script>
-    var mapData = <%= JSON.stringify(json.map) %> 
+      var mapData = <%= JSON.stringify(json.map) %>
     </script>
 
 
