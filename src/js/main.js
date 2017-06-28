@@ -75,10 +75,14 @@ function handleScroll() {
         if (pos > pos_profile[profileIDX] - offset_scrolling) {
           currentProfile = profile;
         }
-      } else {
-        if (pos > pos_profile[profileIDX] + 300) {
+      } else if (profile == "mckinney") {
+        if (pos > pos_profile[profileIDX] + 200) {
           currentProfile = profile;
         }
+      } else {
+        if (pos > pos_profile[profileIDX] + 400) {
+          currentProfile = profile;
+        }        
       }
       if (pos > pos_map[profileIDX]) {
         currentMap = profile;
