@@ -11,6 +11,8 @@
 @mckinney: #0085BB;
 @brownell: #CF5EA3;
 
+@button-color: #6790B7;
+
 .map {
   height: 500px;
   max-width: 1000px;
@@ -20,6 +22,7 @@
   @media @mobile {
     width: 100%;
   }
+  // border: 1px solid @dark-gray;
 }
 
 .map-container {
@@ -127,7 +130,8 @@
 			width: 100%;
 		}
 	}
-	padding-bottom: 20px;
+  padding: 35px 0;
+	// padding-bottom: 20px;
 }
 
 .caption {
@@ -155,6 +159,7 @@
 	padding-top: 20px;
 	text-align: center;
 	margin: auto;
+  font-family: @bold-graphics;
   &.gray { border-bottom: 4px solid @gray; }
   &.smirf { border-bottom: 4px solid @smirf; }
   &.mayweather { border-bottom: 4px solid @mayweather; }
@@ -174,9 +179,9 @@
 	}
 }
 
-.lead-image {
-	padding-top: 30px;
-}
+// .lead-image {
+// 	padding-top: 30px;
+// }
 
 
 .profile {
@@ -191,4 +196,41 @@
   -ms-transition: opacity 200ms linear;
   transition: opacity 400ms linear;
 	opacity: 1;
+}
+
+.back-link {
+  width: 400px;
+  a {
+    color: white;
+  }
+  @media @mobile {
+    width: 300px;
+  }
+  color: white;
+  text-align: center;
+  font-family: @med-graphics;
+  font-size: 16px;
+  // display: inline-block;
+  border-radius: 3px;
+  padding: 1px;
+  cursor: pointer;
+  background: @button-color;
+  margin: 70px auto;
+  padding: 10px 30px;
+  .fa {
+    padding-left: 20px;
+    font-size: 25px;
+    vertical-align: middle;
+  }
+  &:hover {
+    background: lighten(@button-color,10%);
+  }
+}
+
+.profiles-container {
+  margin: 50px auto;
+  padding: 50px 0;
+  border-top: 1px solid @light-gray;
+  border-bottom: 1px solid @light-gray;
+  background: lighten(@light-gray,18%);
 }

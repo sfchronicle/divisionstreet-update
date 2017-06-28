@@ -84,8 +84,6 @@
           <% obj.forEach(function(d,dIDX) { %>
             <% if (d.type == "Person") { %>
               <div class="name <%=d.value.split(/[, ]+/).pop().toLowerCase()%>"><%= d.value %></div>
-            <% } else if (d.type == "Description"){ %>
-              <div class="description"><%= d.value %></div>
             <% } else if (d.type == "image"){ %>
               <div class="lead-image">
                 <img src="http://ww2.hdnux.com/photos/61/64/55/<%= d.value[0].WcmID %>/5/2000x0.jpg">
@@ -122,7 +120,7 @@
 
     </div>
 
-
+    <%= t.include("partials/_credits.html") %>
     <%= t.include("partials/_footer.html") %>
 
     <script>

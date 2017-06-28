@@ -13,9 +13,9 @@ if (screen.width <= 480) {
   var offset_scrolling = 400;
 
 } else {
-  var sf_lat = 37.6;
-  var sf_long = -122.5;
-  var zoom_deg = 11;
+  var sf_lat = 37.8;
+  var sf_long = -122.4;
+  var zoom_deg = 13;
 
   var offset_top = 900;
   var bottomOffset = 200;
@@ -160,7 +160,7 @@ function drawMap(mapData,mapID,mapkey,mapvar){
 
   // dragging and zooming controls
   mapvar.scrollWheelZoom.disable();
-  mapvar.dragging.disable();
+  // mapvar.dragging.disable();
   mapvar.touchZoom.disable();
   mapvar.doubleClickZoom.disable();
   mapvar.keyboard.disable();
