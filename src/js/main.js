@@ -20,6 +20,9 @@ require("leaflet");
   // var zoom_deg = 10;
 
   var offset_scrolling = 200;
+  if($(window).width() <= 480) {
+    offset_scrolling = 400;
+  }
   var bottomOffset = 200;
   var mapOffset = 400;
 // }
