@@ -2,8 +2,9 @@ require("./lib/social"); //Do not delete
 var d3 = require('d3');
 require("leaflet");
 
-
+  $(document).ready(function() {
     $(window).load(function() {
+      
 
     var gray_pos = $('#gray').offset().top - 300;
     var smirf_pos = $('#smirf').offset().top - 300;
@@ -12,24 +13,36 @@ require("leaflet");
     var mckinney_pos = $('#mckinney').offset().top - 300; 
     var brownell_pos = $('#brownell').offset().top - 300; 
 
-    console.log(gray_pos);
-    console.log(smirf_pos);
-    console.log(mayweather_pos);
-    console.log(quinn_pos);
-    console.log(mckinney_pos);
-    console.log(brownell_pos);
+    var sidebar_pos = $('#gray').offset().top + 30;
+    $('.sidebar').css({ top: sidebar_pos });
+    console.log(sidebar_pos);
+
+
+    // console.log(gray_pos);
+    // console.log(smirf_pos);
+    // console.log(mayweather_pos);
+    // console.log(quinn_pos);
+    // console.log(mckinney_pos);
+    // console.log(brownell_pos);
 
   
     $(window).on('scroll', function() {
       var curr_pos = window.pageYOffset;
+      var sidebar_top = $('.sidebar')[0].getBoundingClientRect().top;
+  // these are relative to the viewport, i.e. the window
+  console.log(sidebar_top);
       
       if (curr_pos > gray_pos && curr_pos < smirf_pos) {
-        $('#gray').addClass('active');
-        $('#smirf').removeClass('active');
-      } else if (curr_pos > smirf_pos && curr_pos < mayweather_pos) {
-        console.log("got to smirf");
+        $('#gray').addClass('active', 1000);
+        $('.sidebar').addClass('active', 1000);
+        $('.sidebar').css({ position: 'fixed' , top: sidebar_top});
+        // $('#smirf').removeClass('active');
+      } else 
+      if (curr_pos > smirf_pos && curr_pos < mayweather_pos) {
+        
         $('#gray').removeClass('active');
         $('#smirf').addClass('active');
+        console.log("got to smirf");
         $('#mayweather').removeClass('active');
       } else if (curr_pos > mayweather_pos && curr_pos < quinn_pos) {
         $('#smirf').removeClass('active');
@@ -47,7 +60,10 @@ require("leaflet");
         $('#mckinney').removeClass('active');
         $('#brownell').addClass('active');
       } else if (curr_pos < gray_pos) {
-        $('#gray').removeClass('active');
+        // $('.sidebar').css({ opacity: 0 });
+        $('#gray').removeClass('active', 1000);
+        $('.sidebar').removeClass('active', 1000);
+        $('.sidebar').css({ position: 'absolute', top: sidebar_pos });
       }
 
     });
@@ -168,3 +184,6 @@ function drawMap(mapData,mapID,mapkey){
 }
 
 });
+
+});
+
