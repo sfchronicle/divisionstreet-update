@@ -58,21 +58,16 @@ function handleScroll() {
 
   // figure out where the top of the page is, and also the top and beginning of the map content
   var pos = $(this).scrollTop();
-  console.log(pos);
   var pos_profiles_top = $('#top-of-profiles').offset().top - offset_top;
   var pos_profiles_bottom = $('#bottom-of-profiles').offset().top - bottomOffset;
 
   // show the landing of the page if the reader is at the top
   if (pos < pos_profiles_top){
     document.getElementById("gray").classList.remove("active");
-    console.log("AT THE TOP");
     currentProfile = null;
 
   // show the appropriate dots if the reader is in the middle of the page
   } else if (pos < pos_profiles_bottom){
-    console.log("IN THE MIDDLE");
-
-
     currentProfile = null;
     listKeys.forEach(function(profile,profileIDX) {
       if (profile != "brownell" && profile != "mckinney") {
@@ -96,7 +91,6 @@ function handleScroll() {
       }
     });
 
-
     if (currentProfile != prevProfile) {
       // $('#' + currentProfile).addClass('active', 1000);
       document.getElementById("gray").classList.add("active");
@@ -108,8 +102,6 @@ function handleScroll() {
       if (prevProfile) {
         document.getElementById(prevProfile).classList.remove("active");
       }
-
-
 
       prevProfile = currentProfile;
       // document.getElementById(currentProfile).classList.add("active");
@@ -127,7 +119,6 @@ function handleScroll() {
   } else if (pos > pos_profiles_bottom ) {
     currentProfile = null;
     document.getElementById("brownell").classList.remove("active");
-    console.log("AT THE BOTTOM");
   }
 };
 
