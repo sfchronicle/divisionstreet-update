@@ -2,6 +2,8 @@ require("./lib/social"); //Do not delete
 var d3 = require('d3');
 require("leaflet");
 
+$(window).load(function() {
+
 // setting parameters for the center of the map and initial zoom level
 if (screen.width <= 480) {
   var sf_lat = 37.76;
@@ -36,6 +38,7 @@ listKeys.forEach(function(profile,profileIDX) {
   pos_profile[profileIDX] = $('#'+profile).offset().top-offset_scrolling;
   pos_map[profileIDX] = $('#map'+profile).offset().top-mapOffset;
 });
+
 $(window).scroll(function () {
     if (scrollTimer) {
         clearTimeout(scrollTimer);   // clear any previous pending timer
@@ -55,6 +58,7 @@ function handleScroll() {
 
   // figure out where the top of the page is, and also the top and beginning of the map content
   var pos = $(this).scrollTop();
+  console.log(pos);
   var pos_profiles_top = $('#top-of-profiles').offset().top - offset_top;
   var pos_profiles_bottom = $('#bottom-of-profiles').offset().top - bottomOffset;
 
@@ -76,11 +80,11 @@ function handleScroll() {
           currentProfile = profile;
         }
       } else if (profile == "mckinney") {
-        if (pos > pos_profile[profileIDX] + 200) {
+        if (pos > pos_profile[profileIDX]) {
           currentProfile = profile;
         }
       } else {
-        if (pos > pos_profile[profileIDX] + 400) {
+        if (pos > pos_profile[profileIDX] + 100) {
           currentProfile = profile;
         }        
       }
@@ -237,3 +241,5 @@ function drawMap(mapData,mapID,mapkey,mapvar){
   }
   return mapvar;
 }
+
+});
