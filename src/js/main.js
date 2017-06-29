@@ -12,7 +12,7 @@ if (screen.width <= 480) {
 
   var offset_top = 900;
   var bottomOffset = 100;
-  var offset_scrolling = 0;
+  var offset_scrolling = 150;
 
 } else {
   var sf_lat = 37.8;
@@ -105,10 +105,7 @@ function handleScroll() {
 
       prevProfile = currentProfile;
       // document.getElementById(currentProfile).classList.add("active");
-    } else {
-      //document.getElementById("brownell").classList.add("active");
-      // $('#' + currentProfile).addClass('active', 1000);
-    }
+    } 
 
       if (currentProfile == "brownell") {
         document.getElementById("brownell").classList.add("active");
