@@ -97,10 +97,23 @@
             <% } else if (d.type == "mayweather_slideshow") { %>
               <div id="kathy_slideshow" class="carousel slideshow js-flickity" data-flickity-options='{ "imagesLoaded": true, "pageDots": false }'>
                 <% json.division['mayweather_slideshow'].forEach(function(slide) { %>
+                <% if (slide.Class){ %>
+
+                <div class="carousel-cell">
+                  <img src="./assets/photos/mayweather.jpg">
+                  <div class="caption"><%= slide.Caption %></div>
+                </div>
+
+                <% } else  { %>
+
+
                 <div class="carousel-cell">
                   <img src="http://ww1.hdnux.com/photos/61/75/22/<%= slide.Wcm %>/7/premium_landscape.jpg">
                   <div class="caption"><%= slide.Caption %></div>
                 </div>
+                <% } %>
+
+
                 <% }); %>
               </div>
             <% } else if (d.type == "quinn_slideshow") { %>
