@@ -86,7 +86,7 @@ function handleScroll() {
       } else {
         if (pos > pos_profile[profileIDX] + 100) {
           currentProfile = profile;
-        }        
+        }
       }
       if (pos > pos_map[profileIDX]) {
         currentMap = profile;
@@ -187,7 +187,7 @@ function drawMap(mapData,mapID,mapkey,mapvar){
 
   // dragging and zooming controls
   mapvar.scrollWheelZoom.disable();
-  // mapvar.dragging.disable();
+  mapvar.dragging.disable();
   mapvar.touchZoom.disable();
   mapvar.doubleClickZoom.disable();
   mapvar.keyboard.disable();
