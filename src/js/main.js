@@ -12,7 +12,7 @@ if (screen.width <= 480) {
 
   var offset_top = 900;
   var bottomOffset = 100;
-  var offset_scrolling = 150;
+  var offset_scrolling = 300;
 
 } else {
   var sf_lat = 37.8;
