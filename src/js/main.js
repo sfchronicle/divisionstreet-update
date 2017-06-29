@@ -17,7 +17,7 @@ if (screen.width <= 480) {
 } else {
   var sf_lat = 37.8;
   var sf_long = -122.4;
-  var zoom_deg = 13;
+  var zoom_deg = 14;
 
   var offset_top = 900;
   var bottomOffset = 400;
@@ -36,7 +36,8 @@ var pos_profile = {}; var pos_map = {};
 
 listKeys.forEach(function(profile,profileIDX) {
   pos_profile[profileIDX] = $('#'+profile).offset().top-offset_scrolling;
-  pos_map[profileIDX] = $('#map'+profile).offset().top-mapOffset;
+  // MAP CENTERING CODE
+  // pos_map[profileIDX] = $('#map'+profile).offset().top-mapOffset;
 });
 
 $(window).scroll(function () {
@@ -83,12 +84,13 @@ function handleScroll() {
       //     currentProfile = profile;
       //   }
       // }
-      if (pos > pos_map[profileIDX]) {
-        currentMap = profile;
-        var currentMapVar = eval(currentMap+"MapVar");
-        currentMapVar.panTo(mapData[profileIDX]);
-        // currentMapVar.setView(mapData[profileIDX], 12, {"animation": true});
-      }
+            // MAP CENTERING CODE
+            // if (pos > pos_map[profileIDX]) {
+            //   currentMap = profile;
+            //   var currentMapVar = eval(currentMap+"MapVar");
+            //   currentMapVar.panTo(mapData[profileIDX]);
+            //   // currentMapVar.setView(mapData[profileIDX], 12, {"animation": true});
+            // }
     });
 
     if (currentProfile != prevProfile) {
@@ -105,7 +107,7 @@ function handleScroll() {
 
       prevProfile = currentProfile;
       // document.getElementById(currentProfile).classList.add("active");
-    } 
+    }
 
       if (currentProfile == "brownell") {
         document.getElementById("brownell").classList.add("active");
@@ -144,23 +146,23 @@ mapData.forEach(function(d) {
 // generating maps and their annotations --------------------------------------
 listKeys.forEach(function(d,dIDX){
   if (d == "gray") {
-    grayMapVar = drawMap(mapData,"map"+d,d,eval(d+"MapVar"));
+    grayMapVar = drawMap(mapData,"map"+d,d,eval(d+"MapVar"),dIDX);
   } else if (d == "smirf"){
-    smirfMapVar = drawMap(mapData,"map"+d,d,eval(d+"MapVar"));
+    smirfMapVar = drawMap(mapData,"map"+d,d,eval(d+"MapVar"),dIDX);
   } else if (d == "mayweather"){
-    mayweatherMapVar = drawMap(mapData,"map"+d,d,eval(d+"MapVar"));
+    mayweatherMapVar = drawMap(mapData,"map"+d,d,eval(d+"MapVar"),dIDX);
   } else if (d == "quinn"){
-    quinnMapVar = drawMap(mapData,"map"+d,d,eval(d+"MapVar"));
+    quinnMapVar = drawMap(mapData,"map"+d,d,eval(d+"MapVar"),dIDX);
   } else if (d == "mckinney"){
-    mckinneyMapVar = drawMap(mapData,"map"+d,d,eval(d+"MapVar"));
+    mckinneyMapVar = drawMap(mapData,"map"+d,d,eval(d+"MapVar"),dIDX);
   } else if (d == "brownell"){
-    brownellMapVar = drawMap(mapData,"map"+d,d,eval(d+"MapVar"));
+    brownellMapVar = drawMap(mapData,"map"+d,d,eval(d+"MapVar"),dIDX);
   }
   document.getElementById("map-annotation-"+d).innerHTML = "<div class='maphed'>"+mapData[dIDX].head+"</div><div class='mapsubhed'>"+mapData[dIDX].text+"</div><div class='maplink link"+d+"'><a href='http://projects.sfchronicle.com/sf-homeless/division-street-map/#"+d+"' target='_blank'><i class='fa fa-external-link-square' aria-hidden='true'></i> See "+mapData[dIDX].namelabel+" original path</a></div>";
 });
 
 // function to generate the map ------------------------------------------------
-function drawMap(mapData,mapID,mapkey,mapvar){
+function drawMap(mapData,mapID,mapkey,mapvar,mapIDX){
 
   // initialize map with center position and zoom levels
   mapvar = L.map(mapID, {
@@ -227,6 +229,9 @@ function drawMap(mapData,mapID,mapkey,mapvar){
       }
     );
   }
+  mapvar.panTo(mapData[mapIDX]);
+  // map.panTo(new L.LatLng(sf_lat, sf_long));
+
   return mapvar;
 }
 
