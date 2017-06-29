@@ -70,19 +70,19 @@ function handleScroll() {
   } else if (pos < pos_profiles_bottom){
     currentProfile = null;
     listKeys.forEach(function(profile,profileIDX) {
-      if (profile != "brownell" && profile != "mckinney") {
+      // if (profile != "brownell" && profile != "mckinney") {
         if (pos > pos_profile[profileIDX] - offset_scrolling) {
           currentProfile = profile;
         }
-      } else if (profile == "mckinney") {
-        if (pos > pos_profile[profileIDX]) {
-          currentProfile = profile;
-        }
-      } else {
-        if (pos > pos_profile[profileIDX] + 100) {
-          currentProfile = profile;
-        }
-      }
+      // } else if (profile == "mckinney") {
+      //   if (pos > pos_profile[profileIDX]) {
+      //     currentProfile = profile;
+      //   }
+      // } else {
+      //   if (pos > pos_profile[profileIDX]) {
+      //     currentProfile = profile;
+      //   }
+      // }
       if (pos > pos_map[profileIDX]) {
         currentMap = profile;
         var currentMapVar = eval(currentMap+"MapVar");
